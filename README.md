@@ -9,8 +9,10 @@ O envio dos commits deve ser enviado na ordem das tarefas estabelecidas, qualque
 4. - [ ] Calcular a média geral da turma -> Natham -> @nathamraphael
 5. - [ ] Lista de alunos que ficaram acima e os que ficaram abaixo da média geral -> Luiz -> @LuizOtavio22
 
-Não se esqueçam de adicionar as funções criadas no int main() e dos comentários com a descrição do que foi feito e seu nome na frente da sua função
+Não se esqueçam de adicionar as funções criadas no int main( ) com seu nome na frente da sua função e dos comentários com a descrição do que foi feito
+
 Ex: registrarAlunos() //Yanko
+
 //Laço de repetição para o cadastro dos alunos
 
 Boa codagem a todos!
