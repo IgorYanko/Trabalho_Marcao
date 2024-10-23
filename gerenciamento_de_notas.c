@@ -1,8 +1,10 @@
 #include <stdio.h>
 
+int notasAlunos[30][2];
+    
 int registrarAlunos() // Yanko
 {
-    int i, j, id = 0, notasAlunos[30][2], nota = 0, soma;
+    int i, j, id = 0, nota = 0, soma;
     
     // Título da aplicação no console
     printf("\t\t\t\t -----------------------------------\n");
