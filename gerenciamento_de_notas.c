@@ -1,10 +1,11 @@
 #include <stdio.h>
 
-int notasAlunos[30][2];
+float notasAlunos[30][2];
     
 int registrarAlunos() // Yanko
 {
-    int i, j, id = 0, nota = 0, soma;
+    int i, j, id = 0;
+    float nota = 0, soma;
     
     // Título da aplicação no console
     printf("\t\t\t\t -----------------------------------\n");
@@ -26,7 +27,7 @@ int registrarAlunos() // Yanko
             
             for (j = 0; j < 3; j++) { // Laço de repetição para as 3 notas
                 printf("\nEscreva a %d nota: ", j + 1);
-                scanf("%d", &nota);
+                scanf("%f", &nota);
                 
                 soma += nota;
             }
@@ -38,7 +39,26 @@ int registrarAlunos() // Yanko
     }
 }
 
+float calcularMedia() 
+{ // Diogo Henrique
+
+    float medias[30][2], media, id; //Declarei as variáveis 
+    
+     for (int i =0; i < 30; i++) 
+    { //Laço para Verificar ID,Dividir,Guardar media e ID
+    
+        if ( notasAlunos[i][0] !=0 )
+        {
+            media = notasAlunos[i][1] / 3.0; // Dividindo pra obter a media
+            id = notasAlunos[i][0]; // Assoçiando o id a outra matriz
+            medias[i][1] = media; // Esta atribuindo media em uma posiçao da matriz
+            medias[i][0] = id; // Esta atribuindo ID em uma posiçao da matriz
+        }
+    }
+}
+
 int main()
 {
-   registrarAlunos(); 
+   registrarAlunos();
+   calcularMedia();
 }
