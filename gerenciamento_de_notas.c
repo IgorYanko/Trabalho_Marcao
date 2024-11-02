@@ -58,7 +58,7 @@ float calcularMedia()
 }
 int Exibir_Nota() // Kayo Winicius
 {
-    float Maior_Nota, Menor_Nota, nota; // Declaração das variáveis. 
+    float Maior_Nota, Menor_Nota; // Declaração das variáveis. 
 
     for(int i = 0; i < 30; i++) // Laço para encontrar a maior e a menor nota.
     {
