@@ -66,7 +66,7 @@ int Exibir_Nota() // Kayo Winicius
         {
             float medias = notasAlunos[i][1] / 3.0; 
 
-            if(medias > Maior_Nota){ // Verifica se a média atual é maior que o valor atualmente armazenado em Maior_Nota]
+            if(medias > Maior_Nota){ // Verifica se a média atual é maior que o valor atualmente armazenado em Maior_Nota
                 Maior_Nota = medias; // Atualiza a maior nota.
 
             if(medias < Menor_Nota){ // Mesma coisa que o primeiro if, mas agora verifica se a média atual é menor que o valor armazenado.
