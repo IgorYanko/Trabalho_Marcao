@@ -56,7 +56,30 @@ float calcularMedia()
         }
     }
 }
+int Exibir_Nota() // Kayo Winicius
+{
+    float Maior_Nota, Menor_Nota, nota; // Declaração das variáveis. 
 
+    for(int i = 0; i < 30; i++) // Laço para encontrar a maior e a menor nota.
+    {
+        if(notasAlunos[i][0] != 0) // Verifica se o ID é valido 
+        {
+            float medias = notasAlunos[i][1] / 3.0; 
+
+            if(medias > Maior_Nota){ // Verifica se a média atual é maior que o valor atualmente armazenado em Maior_Nota]
+                Maior_Nota = medias; // Atualiza a maior nota.
+
+            if(medias < Menor_Nota){ // Mesma coisa que o primeiro if, mas agora verifica se a média atual é menor que o valor armazenado.
+                Menor_Nota = medias; // Atualiza menor nota.
+
+         }
+    }
+}
+
+        printf("A maior nota eh: %.2f\n", Maior_Nota);
+        printf("A menor nota eh: %2.f\n", Menor_Nota);
+    }
+}
 int main()
 {
    registrarAlunos();
