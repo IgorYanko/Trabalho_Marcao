@@ -56,32 +56,39 @@ float calcularMedia()
         }
     }
 }
-int Exibir_Nota() // Kayo Winicius
+int ExibirNota(float medias[30][2]) // Kayo Winicius.  
 {
-    float Maior_Nota, Menor_Nota; // Declaração das variáveis. 
+    float Maior_Nota = 0, Menor_Nota = INT_MAX; // Declaração das variáveis a serem usadas;
 
-    for(int i = 0; i < 30; i++) // Laço para encontrar a maior e a menor nota.
+    for(int i = 0; i < 30; i++) // Laço para percorrer as médias;
     {
-        if(notasAlunos[i][0] != 0) // Verifica se o ID é valido 
-        {
-            float medias = notasAlunos[i][1] / 3.0; 
+        if(medias[i][0] != 0){ // Verifica se o ID do aluno não é zero;
+            float media = medias[i][1]; // A média do aluno é extraida da segunda coluna onde foram armazenada as médias;
 
-            if(medias > Maior_Nota){ // Verifica se a média atual é maior que o valor atualmente armazenado em Maior_Nota
-                Maior_Nota = medias; // Atualiza a maior nota.
-
-            if(medias < Menor_Nota){ // Mesma coisa que o primeiro if, mas agora verifica se a média atual é menor que o valor armazenado.
-                Menor_Nota = medias; // Atualiza menor nota.
-
-         }
+            if(media > Maior_Nota){ // Para verificar se a média atual é maior do que a Maior_Nota armazenada. Se for, a variável é atualizada;
+                Maior_Nota = media; // Faz a atualização da Maior_Nota;
+            } 
+            
+            if(media < Menor_Nota){ // Verifica se a média atual é menor que a Menor_Nota armazenada. Se for, a variavél atual é atualizada;
+                Menor_Nota = media; // Faz a atualização da Menor_Media
+            }
+        }
     }
+    
+        printf("A maior nota eh: %.2f\n", Maior_Nota);
+        printf("A menor nota eh: %.2f\n", Menor_Nota);
+        //Irá imprimir a Maior_Nota e Menor_Nota na tela.
+
 }
 
-        printf("A maior nota eh: %.2f\n", Maior_Nota);
-        printf("A menor nota eh: %2.f\n", Menor_Nota);
+         
+int main()
+   
     }
 }
 int main()
 {
    registrarAlunos();
    calcularMedia();
+    ExibirNota();
 }
