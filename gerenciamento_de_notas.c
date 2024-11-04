@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <limits.h>
 
-float notasAlunos[30][2];
+float notasAlunos[30][2], medias[30][2], contagem;
     
 int registrarAlunos() // Yanko
 {
@@ -42,7 +43,7 @@ int registrarAlunos() // Yanko
 float calcularMedia() 
 { // Diogo Henrique
 
-    float medias[30][2], media, id; //Declarei as variáveis 
+    float media, id; //Declarei as variáveis 
     
      for (int i =0; i < 30; i++) 
     { //Laço para Verificar ID,Dividir,Guardar media e ID
@@ -53,8 +54,11 @@ float calcularMedia()
             id = notasAlunos[i][0]; // Assoçiando o id a outra matriz
             medias[i][1] = media; // Esta atribuindo media em uma posiçao da matriz
             medias[i][0] = id; // Esta atribuindo ID em uma posiçao da matriz
+            contagem++;
         }
     }
+
+    return contagem;
 }
 int ExibirNota(float medias[30][2]) // Kayo Winicius.  
 {
@@ -81,14 +85,9 @@ int ExibirNota(float medias[30][2]) // Kayo Winicius.
 
 }
 
-         
-int main()
-   
-    }
-}
 int main()
 {
    registrarAlunos();
    calcularMedia();
-    ExibirNota();
+   ExibirNota(medias);
 }
