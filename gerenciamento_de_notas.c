@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <limits.h>
+#include <limits.h> // lib para usar INT_MAX
 
 float notasAlunos[30][2], medias[30][2], contagem;
     
@@ -54,7 +54,7 @@ float calcularMedia()
             id = notasAlunos[i][0]; // Assoçiando o id a outra matriz
             medias[i][1] = media; // Esta atribuindo media em uma posiçao da matriz
             medias[i][0] = id; // Esta atribuindo ID em uma posiçao da matriz
-            contagem++;
+            contagem++; //Variável para saber quantos alunos foram cadastrados no final - Matheus
         }
     }
 
@@ -79,10 +79,53 @@ int ExibirNota(float medias[30][2]) // Kayo Winicius.
         }
     }
     
-        printf("A maior nota eh: %.2f\n", Maior_Nota);
+        printf("\nA maior nota eh: %.2f\n", Maior_Nota);
         printf("A menor nota eh: %.2f\n", Menor_Nota);
         //Irá imprimir a Maior_Nota e Menor_Nota na tela.
 
+}
+
+float calcularMediaGeral(float alunos[30][2]) // Função para calcular media geral - Natham
+{
+    int soma = 0, media;
+    
+    for (int i = 0; i < contagem; i++) {
+        soma += alunos[i][1];
+    }
+    
+    media = (float)soma / contagem;
+    
+    return media;
+}
+
+void ExibirAcimaAbaixoMediaGeral(float medias[30][2])
+{
+    float mediaGeral = calcularMediaGeral(medias);  // Chama a função para calcular a média geral
+
+    if (mediaGeral > 0) 
+    {
+        printf("\nA média geral das notas é: %.2f\n", mediaGeral);
+
+        // Exibe alunos acima da média
+        printf("\nAlunos acima da média:\n");
+        for (int i = 0; i < 30; i++) {
+            if (medias[i][0] != 0 && medias[i][1] > mediaGeral) {
+                printf("Aluno ID: %.0f - Média: %.2f\n", medias[i][0], medias[i][1]);
+            }
+        }
+
+        // Exibe alunos abaixo da média
+        printf("\nAlunos abaixo da média:\n");
+        for (int i = 0; i < 30; i++) {
+            if (medias[i][0] != 0 && medias[i][1] < mediaGeral) {
+                printf("Aluno ID: %.0f - Média: %.2f\n", medias[i][0], medias[i][1]);
+            }
+        }
+    }
+    else
+    {
+        printf("Nenhum aluno foi registrado.\n");
+    }
 }
 
 int main()
@@ -90,4 +133,5 @@ int main()
    registrarAlunos();
    calcularMedia();
    ExibirNota(medias);
+   ExibirAcimaAbaixoMediaGeral(medias);
 }
