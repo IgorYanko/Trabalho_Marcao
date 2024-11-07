@@ -5,8 +5,9 @@ float notasAlunos[30][2], medias[30][2], contagem;
     
 int registrarAlunos() // Yanko
 {
-    int i, j, id = 0;
+    int i = 0, j, id;
     float nota = 0, soma;
+    char escolha = 's';
     
     // Título da aplicação no console
     printf("\t\t\t\t -----------------------------------\n");
@@ -15,29 +16,42 @@ int registrarAlunos() // Yanko
     
     printf("\t\tEscreva o Id e 3 notas para cada aluno, no final o relatorio sera mostrado. \n\n");
     
+    while((escolha == 's' || escolha == 'S') && i <= 30) {
     // Laço de repetição para cadastro de até 30 alunos
-    for (i = 0; i < 30; i++) {
-        printf("\nEscreva o id do aluno: (Digite um numero negativo pra encerrar)\n");
-        scanf("%d", &id);
-    
-        if(id < 1){ // Verifica se a condição de encerramento foi cumprida
-            printf("Cadastro encerrado!");
-            return -1; // Encerra o programa (poderia ser return 0 tmb)
-        }  else {
+            id = i + 1; // Id calculado de forma automática em ordem crescente
+            
+            printf("\nAluno Id %d \n", id);
+            
             soma = 0; // Zera o valor de soma para não acumular os valores
             
             for (j = 0; j < 3; j++) { // Laço de repetição para as 3 notas
-                printf("\nEscreva a %d nota: ", j + 1);
+                printf("\nEscreva a %dº nota: ", j + 1);
                 scanf("%f", &nota);
                 
-                soma += nota;
+                if(nota < 0) { // Descarta notas inválidas
+                    printf("Insira uma nota valida!");
+                    j--; // Mantém o loop até ser inserido 3 notas válidas
+                } else {
+                    soma += nota; // Calcula o somatório das notas
+                }
+                
             }
-
+            
             notasAlunos[i][0] = id; // Atribuindo o id a primeira linha do vetor
             notasAlunos[i][1] = soma; // Atribuindo a soma a segunda linha do vetor
-            // Não realizei a média diretamente pra facilitar na hora de calcular a individual e geral
-        }  
+            i++;
+            
+            if (i >= 30) {
+                printf("Limite de alunos atingido.\n");
+                break; // Encerra ao chegar no máximo de alunos
+            }
+            
+            printf("Deseja continuar? s / n \n");
+            scanf(" %c", &escolha);
     }
+    
+    printf("\nCadastro encerrado!");
+    return 0; // Encerra o programa 
 }
 
 float calcularMedia() 
