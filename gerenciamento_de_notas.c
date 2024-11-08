@@ -17,6 +17,7 @@ int registrarAlunos() // Yanko
     printf("\t\tEscreva o Id e 3 notas para cada aluno, no final o relatorio sera mostrado. \n\n");
     
     while((escolha == 's' || escolha == 'S') && i <= 30) {
+    // Matheus Santos
     // Laço de repetição para cadastro de até 30 alunos
             id = i + 1; // Id calculado de forma automática em ordem crescente
             
@@ -25,7 +26,7 @@ int registrarAlunos() // Yanko
             soma = 0; // Zera o valor de soma para não acumular os valores
             
             for (j = 0; j < 3; j++) { // Laço de repetição para as 3 notas
-                printf("\nEscreva a %dº nota: ", j + 1);
+                printf("\nEscreva a nota %d: ", j + 1);
                 scanf("%f", &nota);
                 
                 if(nota < 0) { // Descarta notas inválidas
@@ -118,21 +119,21 @@ void ExibirAcimaAbaixoMediaGeral(float medias[30][2])
 
     if (mediaGeral > 0) 
     {
-        printf("\nA média geral das notas é: %.2f\n", mediaGeral);
+        printf("\nA media geral das notas eh: %.2f\n", mediaGeral);
 
         // Exibe alunos acima da média
-        printf("\nAlunos acima da média:\n");
+        printf("\nAlunos acima da media:\n");
         for (int i = 0; i < 30; i++) {
             if (medias[i][0] != 0 && medias[i][1] > mediaGeral) {
-                printf("Aluno ID: %.0f - Média: %.2f\n", medias[i][0], medias[i][1]);
+                printf("Aluno ID: %.0f - Media: %.2f\n", medias[i][0], medias[i][1]);
             }
         }
 
         // Exibe alunos abaixo da média
-        printf("\nAlunos abaixo da média:\n");
+        printf("\nAlunos abaixo da media:\n");
         for (int i = 0; i < 30; i++) {
             if (medias[i][0] != 0 && medias[i][1] < mediaGeral) {
-                printf("Aluno ID: %.0f - Média: %.2f\n", medias[i][0], medias[i][1]);
+                printf("Aluno ID: %.0f - Media: %.2f\n", medias[i][0], medias[i][1]);
             }
         }
     }
